@@ -6,5 +6,8 @@ package com.example.tzpizzaapp;
  */
 public enum Sauce {
     ALFREDO,
-    TOMATO
+    BUFFALO,
+    KETCHUP,
+    TOMATO,
+    VODKA
 }

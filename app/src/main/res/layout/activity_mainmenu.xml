@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".MainMenuActivity">
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" android:background="#878686">
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="0dp" android:layout_weight="1" android:gravity="center"
+                android:background="#000000">
+            <ImageView
+                    android:src="@drawable/storeicon"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" android:id="@+id/imageView"
+                    android:layout_weight="1" android:contentDescription="@string/app_name"
+                    tools:ignore="NestedWeights"/>
+            <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" android:id="@+id/textView5" android:textColor="#FFFFFF"
+                    android:textAlignment="center" android:gravity="center"
+                    android:textSize="34sp" android:layout_weight="2" tools:text="@string/app_name"/>
+        </LinearLayout>
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="4">
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp" android:layout_weight="1" android:baselineAligned="false"
+                    tools:ignore="NestedWeights">
+                <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent" android:layout_weight="1">
+                    <ImageButton
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp" android:id="@+id/imageButton"
+                            android:adjustViewBounds="false"
+                            android:cropToPadding="false" android:background="@drawable/build"
+                            android:layout_weight="4" android:contentDescription="@string/build_string"/>
+                    <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp" android:id="@+id/textView" android:layout_weight="1"
+                            android:textAlignment="center" android:textSize="24sp" android:gravity="center"
+                            tools:text="@string/build_string"/>
+                </LinearLayout>
+                <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent" android:layout_weight="1">
+                    <ImageButton
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp" android:id="@+id/imageButton2"
+                            android:background="@drawable/specials" android:cropToPadding="false"
+                            android:adjustViewBounds="false" android:layout_weight="4"
+                            android:contentDescription="@string/special_string"/>
+                    <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp" android:id="@+id/textView2" android:layout_weight="1"
+                            android:textSize="24sp" android:textAlignment="center" android:gravity="center"
+                            tools:text="@string/special_string"/>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp" android:layout_weight="1" android:baselineAligned="false">
+                <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent" android:layout_weight="1">
+                    <ImageButton
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp" android:id="@+id/imageButton3"
+                            android:layout_weight="4"
+                            android:background="@drawable/order" android:contentDescription="@string/order_string"
+                            tools:ignore="NestedWeights"/>
+                    <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp" android:id="@+id/textView3" android:layout_weight="1"
+                            android:textAlignment="center" android:textSize="24sp" android:gravity="center"
+                            tools:text="@string/order_string"/>
+                </LinearLayout>
+                <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent" android:layout_weight="1">
+                    <ImageButton
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp" android:id="@+id/imageButton4"
+                            android:layout_weight="4"
+                            android:background="@drawable/store" android:contentDescription="@string/store_string"
+                            tools:ignore="NestedWeights"/>
+                    <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp" android:id="@+id/textView4" android:layout_weight="1"
+                            android:textAlignment="center" android:textSize="24sp" android:gravity="center"
+                            tools:text="@string/store_string"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

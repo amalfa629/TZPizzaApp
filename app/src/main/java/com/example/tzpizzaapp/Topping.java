@@ -8,7 +8,10 @@ public enum Topping {
     BACON("Bacon"),
     BEEF("Beef"),
     BLACK_OLIVE("Black Olive"),
+    BLUE_CHEESE_CRUMBLES("Blue Cheese Crumbles"),
+    CHICKEN("Chicken"),
     CRAB_MEAT("Crab Meat"),
+    FRIED_CHICKEN_CUTLET("Fried Chicken Cutlet"),
     GREEN_PEPPER("Green Pepper"),
     HAM("Ham"),
     MUSHROOM("Mushroom"),
@@ -17,8 +20,9 @@ public enum Topping {
     PINEAPPLE("Pineapple"),
     SAUSAGE("Sausage"),
     SHRIMP("Shrimp"),
-    SQUID("Squid");
-    private String name;
+    SQUID("Squid"),
+    TOMATO("Tomato");
+    private final String name;
     Topping(String name) {
         this.name = name;
     }

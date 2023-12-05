@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">TZPizzaApp</string>
+    <string name="app_name">T&amp;Z\'s Pizza</string>
+    <string name="build_string">Build Your Own Pizza</string>
+    <string name="special_string">Specialty Pizzas</string>
+    <string name="order_string">Current Order</string>
+    <string name="store_string">All Store Orders</string>
 </resources>
