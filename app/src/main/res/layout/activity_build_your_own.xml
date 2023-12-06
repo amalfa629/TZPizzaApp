@@ -41,7 +41,6 @@
                     android:fontFamily="@font/comic_neue_bold" android:textSize="20sp"
                     android:textColor="@color/black"/>
             <ImageView
-                    android:src="@tools:sample/avatars"
                     android:layout_width="140dp"
                     android:layout_height="113dp" android:id="@+id/imageView2" app:srcCompat="@drawable/build"
             />

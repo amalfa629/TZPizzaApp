@@ -1,6 +1,5 @@
 package com.example.tzpizzaapp;
 
-import android.widget.Spinner;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
