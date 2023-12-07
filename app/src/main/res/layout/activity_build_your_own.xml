@@ -73,10 +73,61 @@
                             android:layout_weight="1"/>
                 </RadioGroup>
             </LinearLayout>
-            <Spinner
+            <LinearLayout
+                    android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" android:id="@+id/sauces" android:spinnerMode="dropdown"
-                    android:background="@color/white" android:entries="@array/sauces_array"/>
+                    android:layout_height="wrap_content">
+                <TextView
+                        android:text="@string/sauce_string"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content" android:id="@+id/textView9"
+                        android:textColor="@color/black" android:textSize="20sp" android:layout_weight="1"
+                        android:textAlignment="center"/>
+                <Spinner
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content" android:id="@+id/sauces" android:spinnerMode="dropdown"
+                        android:layout_weight="4"/>
+            </LinearLayout>
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" android:layout_weight="1">
+                    <TextView
+                            android:text="@string/available_string"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" android:id="@+id/textView8"
+                            android:textAlignment="center" android:textColor="@color/black"/>
+                    <Spinner
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/availableToppings"
+                            android:layout_weight="1"/>
+                </LinearLayout>
+                <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" android:layout_weight="1">
+                    <TextView
+                            android:text="@string/selected_string"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" android:id="@+id/textView6"
+                            android:textAlignment="center" android:textColor="@color/black"/>
+                    <Spinner
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" android:id="@+id/selectedToppings"
+                            android:layout_weight="1"/>
+                </LinearLayout>
+            </LinearLayout>
+            <Button
+                    android:text="@string/add_string"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:id="@+id/button"
+                    android:backgroundTint="@color/black" android:fontFamily="@font/comic_neue_bold"
+                    android:textSize="16sp"/>
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
