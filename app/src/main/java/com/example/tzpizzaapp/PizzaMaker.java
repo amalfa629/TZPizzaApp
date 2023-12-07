@@ -20,6 +20,8 @@ public class PizzaMaker {
         boolean extraSauce = commands[2].equals("true");
         boolean extraCheese = commands[3].equals("true");
         switch(type) {
+            case "BuffaloChicken":
+                pizza = new BuffaloChicken(size, extraSauce, extraCheese);
             case "Deluxe":
                 pizza = new Deluxe(size, extraSauce, extraCheese);
                 break;
