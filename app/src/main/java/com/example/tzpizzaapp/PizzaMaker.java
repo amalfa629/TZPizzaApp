@@ -47,6 +47,9 @@ public class PizzaMaker {
             case "Supreme":
                 pizza = new Supreme(size, extraSauce, extraCheese);
                 break;
+            case "Veggie":
+                pizza   = new Veggie(size, extraSauce, extraCheese);
+                break;
             case "BringYourOwn":
                 Sauce sauce = Sauce.valueOf(commands[4]);
                 String[] toppingsArray = commands[5].split(";");
@@ -69,7 +72,7 @@ public class PizzaMaker {
         items.add(new SpecialtyItem("Meatzza", createPizza("Meatzza,SMALL,true,true"), R.drawable.meatzza));
         items.add(new SpecialtyItem("Pepperoni", createPizza("Pepperoni,SMALL,true,true"), R.drawable.pepperoni));
         items.add(new SpecialtyItem("Seafood", createPizza("Seafood,SMALL,true,true"), R.drawable.seafood));
-        items.add(new SpecialtyItem("Supreme", createPizza("Supreme,SMALL,true,true"), R.drawable.deluxe));
+        items.add(new SpecialtyItem("Supreme", createPizza("Supreme,SMALL,true,true"), R.drawable.supreme));
         items.add(new SpecialtyItem("Veggie", createPizza("Veggie,SMALL,true,true"), R.drawable.veggie));
         return items;
     }

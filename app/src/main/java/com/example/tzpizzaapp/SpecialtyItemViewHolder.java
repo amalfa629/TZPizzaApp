@@ -6,7 +6,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class SpecialtyItemViewHolder extends RecyclerView.ViewHolder {
+public class SpecialtyItemViewHolder extends RecyclerView.ViewHolder implements  View.OnClickListener {
     ImageView pizzaImage;
     TextView name, sauce, toppingsList;
     public SpecialtyItemViewHolder(@NonNull View itemView) {
@@ -15,11 +15,10 @@ public class SpecialtyItemViewHolder extends RecyclerView.ViewHolder {
         pizzaImage = itemView.findViewById(R.id.pizzaImage);
         sauce = itemView.findViewById(R.id.sauce);
         toppingsList = itemView.findViewById(R.id.toppingsList);
-        itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        itemView.setOnClickListener(this);
+    }
 
-            }
-        });
+    @Override
+    public void onClick(View view) {
     }
 }

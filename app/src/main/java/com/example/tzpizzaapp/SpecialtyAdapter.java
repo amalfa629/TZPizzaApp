@@ -11,11 +11,13 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class SpecialtyAdapter extends RecyclerView.Adapter<SpecialtyItemViewHolder> {
-    Context context;
-    List<SpecialtyItem> items;
+    private Context context;
+    private List<SpecialtyItem> items;
+    private int selectedPos;
     public SpecialtyAdapter(Context context, List<SpecialtyItem> items) {
         this.context = context;
         this.items = items;
+        this.selectedPos =  RecyclerView.NO_POSITION;
     }
     @NonNull
     @Override
@@ -25,6 +27,7 @@ public class SpecialtyAdapter extends RecyclerView.Adapter<SpecialtyItemViewHold
 
     @Override
     public void onBindViewHolder(@NonNull SpecialtyItemViewHolder holder, int position) {
+        holder.itemView.setSelected(selectedPos == position);
         String sauce = items.get(position).getPizza().getSauce().toString().toLowerCase();
         sauce = sauce.substring(0,1).toUpperCase() + sauce.substring(1);
         holder.sauce.setText(sauce);
@@ -34,7 +37,7 @@ public class SpecialtyAdapter extends RecyclerView.Adapter<SpecialtyItemViewHold
             toppingList.append(topping.getName()).append(", ");
         }
         String tList = String.valueOf(toppingList);
-        tList = toppingList.substring(0, toppingList.length()-2);
+        tList = toppingList.substring(0, toppingList.length() - 2);
         holder.toppingsList.setText(tList);
         holder.pizzaImage.setImageResource(items.get(position).getImage());
         holder.name.setText(items.get(position).getName());

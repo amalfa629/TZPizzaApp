@@ -21,14 +21,4 @@
     <string name="remove_topping_string">Select to Remove</string>
     <string name="specials_string">Specials:</string>
     <string name="toppings_string">Toppings:</string>
-    <string name="buffalo_chicken_string">Buffalo Chicken</string>
-    <string name="cheeseburger_string">Cheeseburger</string>
-    <string name="chicken_parm_string">Chicken Parm</string>
-    <string name="deluxe_string">Deluxe</string>
-    <string name="hawaiian_string">Hawaiian</string>
-    <string name="meatzza_string">Meatzza</string>
-    <string name="pepperoni_string">Pepperoni</string>
-    <string name="seafood_string">Seafood</string>
-    <string name="supreme_string">Supreme</string>
-    <string name="veggie_string">Veggie</string>
 </resources>

@@ -75,8 +75,24 @@
             </LinearLayout>
             <androidx.recyclerview.widget.RecyclerView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" android:id="@+id/specials"
-                    android:nestedScrollingEnabled="false"/>
+                    android:layout_height="160dp" android:id="@+id/specials"
+                    android:nestedScrollingEnabled="false">
+            </androidx.recyclerview.widget.RecyclerView>
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                <CheckBox
+                        android:text="@string/extra_sauce_string"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content" android:id="@+id/extraSauceSpecial"
+                        android:layout_weight="1"/>
+                <CheckBox
+                        android:text="@string/extra_cheese_string"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content" android:id="@+id/extraCheeseSpecial"
+                        android:layout_weight="1"/>
+            </LinearLayout>
             <Button
                     android:text="@string/add_string"
                     android:layout_width="match_parent"
