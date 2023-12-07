@@ -14,6 +14,8 @@
     <string name="selected_string">Selected Toppings</string>
     <string name="minimum_string">Minimum of three toppings</string>
     <string name="maximum_string">Maximum of seven toppings</string>
+    <string name ="extra_sauce_string">Extra Sauce?</string>
+    <string name ="extra_cheese_string">Extra Cheese?</string>
     <string name="add_string">Add to Order</string>
     <string name="add_topping_string">Select to Add</string>
     <string name="remove_topping_string">Select to Remove</string>

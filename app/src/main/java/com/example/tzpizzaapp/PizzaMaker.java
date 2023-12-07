@@ -22,20 +22,30 @@ public class PizzaMaker {
         switch(type) {
             case "BuffaloChicken":
                 pizza = new BuffaloChicken(size, extraSauce, extraCheese);
+                break;
+            case "Cheeseburger":
+                pizza = new Cheeseburger(size, extraSauce, extraCheese);
+                break;
+            case "ChickenParm":
+                pizza = new ChickenParm(size, extraSauce,extraCheese);
+                break;
             case "Deluxe":
                 pizza = new Deluxe(size, extraSauce, extraCheese);
                 break;
-            case "Supreme":
-                pizza = new Supreme(size, extraSauce, extraCheese);
+            case "Hawaiian":
+                pizza = new Hawaiian(size, extraSauce, extraCheese);
                 break;
             case "Meatzza":
                 pizza = new Meatzza(size, extraSauce, extraCheese);
                 break;
+            case "Pepperoni":
+                pizza = new Pepperoni(size, extraSauce, extraCheese);
+                break;
             case "Seafood":
                 pizza = new Seafood(size, extraSauce, extraCheese);
                 break;
-            case "Pepperoni":
-                pizza = new Pepperoni(size, extraSauce, extraCheese);
+            case "Supreme":
+                pizza = new Supreme(size, extraSauce, extraCheese);
                 break;
             case "BringYourOwn":
                 Sauce sauce = Sauce.valueOf(commands[4]);
@@ -48,5 +58,19 @@ public class PizzaMaker {
                 break;
         }
         return pizza;
+    }
+    public static ArrayList<SpecialtyItem> getPizzaTypes() {
+        ArrayList<SpecialtyItem> items = new ArrayList<SpecialtyItem>();
+        items.add(new SpecialtyItem("Buffalo Chicken", createPizza("BuffaloChicken,SMALL,true,true"), R.drawable.buffalochicken));
+        items.add(new SpecialtyItem("Cheeseburger", createPizza("Cheeseburger,SMALL,true,true"), R.drawable.cheeseburger));
+        items.add(new SpecialtyItem("Chicken Parm", createPizza("ChickenParm,SMALL,true,true"), R.drawable.chickenparm));
+        items.add(new SpecialtyItem("Deluxe", createPizza("Deluxe,SMALL,true,true"), R.drawable.deluxe));
+        items.add(new SpecialtyItem("Hawaiian", createPizza("Hawaiian,SMALL,true,true"), R.drawable.hawaiian));
+        items.add(new SpecialtyItem("Meatzza", createPizza("Meatzza,SMALL,true,true"), R.drawable.meatzza));
+        items.add(new SpecialtyItem("Pepperoni", createPizza("Pepperoni,SMALL,true,true"), R.drawable.pepperoni));
+        items.add(new SpecialtyItem("Seafood", createPizza("Seafood,SMALL,true,true"), R.drawable.seafood));
+        items.add(new SpecialtyItem("Supreme", createPizza("Supreme,SMALL,true,true"), R.drawable.deluxe));
+        items.add(new SpecialtyItem("Veggie", createPizza("Veggie,SMALL,true,true"), R.drawable.veggie));
+        return items;
     }
 }

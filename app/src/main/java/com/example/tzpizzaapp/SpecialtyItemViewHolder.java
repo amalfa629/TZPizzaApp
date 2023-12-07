@@ -8,11 +8,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class SpecialtyItemViewHolder extends RecyclerView.ViewHolder {
     ImageView pizzaImage;
-    TextView sauce, toppingsList;
+    TextView name, sauce, toppingsList;
     public SpecialtyItemViewHolder(@NonNull View itemView) {
         super(itemView);
+        name = itemView.findViewById(R.id.name);
         pizzaImage = itemView.findViewById(R.id.pizzaImage);
         sauce = itemView.findViewById(R.id.sauce);
         toppingsList = itemView.findViewById(R.id.toppingsList);
+        itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
     }
 }

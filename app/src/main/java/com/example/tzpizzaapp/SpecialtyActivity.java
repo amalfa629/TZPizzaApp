@@ -17,8 +17,7 @@ public class SpecialtyActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_specialty);
         specialtyView = findViewById(R.id.specials);
-        ArrayList<SpecialtyItem> items = new ArrayList<SpecialtyItem>();
-        items.add(new SpecialtyItem(PizzaMaker.createPizza("BuffaloChicken,SMALL,true,true"), R.drawable.buffalochicken));
+        ArrayList<SpecialtyItem> items = PizzaMaker.getPizzaTypes();
         specialtyView.setLayoutManager(new LinearLayoutManager(this));
         specialtyView.setAdapter(new SpecialtyAdapter(getApplicationContext(), items));
     }

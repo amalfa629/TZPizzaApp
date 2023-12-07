@@ -37,6 +37,7 @@ public class SpecialtyAdapter extends RecyclerView.Adapter<SpecialtyItemViewHold
         tList = toppingList.substring(0, toppingList.length()-2);
         holder.toppingsList.setText(tList);
         holder.pizzaImage.setImageResource(items.get(position).getImage());
+        holder.name.setText(items.get(position).getName());
     }
 
     @Override
