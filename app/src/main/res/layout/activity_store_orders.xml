@@ -37,7 +37,8 @@
                         android:text="@string/order_number_string"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" android:id="@+id/textView15" android:layout_weight="1"
-                        android:textSize="16sp" android:textColor="@color/black"/>
+                        android:textSize="16sp" android:textColor="@color/black"
+                        android:fontFamily="@font/comic_neue_bold"/>
                 <Spinner
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" android:id="@+id/orders" android:layout_weight="1"/>
@@ -50,7 +51,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" android:id="@+id/cancelButton"
                     android:backgroundTint="@color/black" android:textSize="16sp"
-                    android:onClick="onCancelButtonClick"/>
+                    android:onClick="onCancelButtonClick" android:fontFamily="@font/comic_neue_bold"/>
             <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
@@ -59,12 +60,13 @@
                         android:text="@string/total_string"
                         android:layout_width="0dp"
                         android:layout_height="match_parent" android:id="@+id/textView18" android:layout_weight="1"
-                        android:textSize="16sp" android:textAlignment="center" android:textColor="@color/black"/>
+                        android:textSize="16sp" android:textAlignment="center" android:textColor="@color/black"
+                        android:fontFamily="@font/comic_neue_bold"/>
                 <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content" android:id="@+id/totalStore" android:layout_weight="4"
                         android:textColor="@color/black" android:textSize="16sp"
-                        android:background="@drawable/order_back"/>
+                        android:background="@drawable/order_back" android:fontFamily="@font/comic_neue_bold"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

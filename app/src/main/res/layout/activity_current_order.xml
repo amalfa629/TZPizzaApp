@@ -46,13 +46,13 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent" android:id="@+id/removeButton" android:layout_weight="1"
                         android:backgroundTint="@color/black" android:enabled="false" android:textSize="16sp"
-                        android:onClick="onRemoveButtonClick"/>
+                        android:onClick="onRemoveButtonClick" android:fontFamily="@font/comic_neue_bold"/>
                 <Button
                         android:text="@string/place_string"
                         android:layout_width="0dp"
                         android:layout_height="match_parent" android:id="@+id/placeButton" android:layout_weight="1"
                         android:backgroundTint="@color/black" android:textSize="16sp"
-                        android:onClick="onPlaceButtonClick"/>
+                        android:onClick="onPlaceButtonClick" android:fontFamily="@font/comic_neue_bold"/>
             </LinearLayout>
             <LinearLayout
                     android:orientation="horizontal"
@@ -62,12 +62,13 @@
                         android:text="@string/subtotal_string"
                         android:layout_width="0dp"
                         android:layout_height="match_parent" android:id="@+id/textView14" android:layout_weight="1"
-                        android:textAlignment="center" android:textColor="@color/black" android:textSize="16sp"/>
+                        android:textAlignment="center" android:textColor="@color/black" android:textSize="16sp"
+                        android:fontFamily="@font/comic_neue_bold"/>
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent" android:id="@+id/subtotal" android:layout_weight="4"
                         android:background="@drawable/order_back" android:textColor="@color/black"
-                        android:textSize="16sp"/>
+                        android:textSize="16sp" android:fontFamily="@font/comic_neue_bold"/>
             </LinearLayout>
             <LinearLayout
                     android:orientation="horizontal"
@@ -77,12 +78,13 @@
                         android:text="@string/tax_string"
                         android:layout_width="0dp"
                         android:layout_height="match_parent" android:id="@+id/textView16" android:layout_weight="2"
-                        android:textAlignment="center" android:textSize="16sp" android:textColor="@color/black"/>
+                        android:textAlignment="center" android:textSize="16sp" android:textColor="@color/black"
+                        android:fontFamily="@font/comic_neue_bold"/>
                 <TextView
                         android:layout_width="0dp"
                         android:layout_height="match_parent" android:id="@+id/tax" android:layout_weight="3"
                         android:background="@drawable/order_back" android:textSize="16sp"
-                        android:textColor="@color/black"/>
+                        android:textColor="@color/black" android:fontFamily="@font/comic_neue_bold"/>
             </LinearLayout>
             <LinearLayout
                     android:orientation="horizontal"
@@ -92,12 +94,13 @@
                         android:text="@string/total_string"
                         android:layout_width="0dp"
                         android:layout_height="match_parent" android:id="@+id/textView18" android:layout_weight="1"
-                        android:textSize="16sp" android:textAlignment="center" android:textColor="@color/black"/>
+                        android:textSize="16sp" android:textAlignment="center" android:textColor="@color/black"
+                        android:fontFamily="@font/comic_neue_bold"/>
                 <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content" android:id="@+id/total" android:layout_weight="4"
                         android:textColor="@color/black" android:textSize="16sp"
-                        android:background="@drawable/order_back"/>
+                        android:background="@drawable/order_back" android:fontFamily="@font/comic_neue_bold"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

@@ -52,7 +52,8 @@
                         android:text="@string/size_string"
                         android:layout_width="60dp"
                         android:layout_height="match_parent" android:id="@+id/textView7"
-                        android:textColor="@color/black" android:textSize="20sp" android:gravity="center"/>
+                        android:textColor="@color/black" android:textSize="20sp" android:gravity="center"
+                        android:fontFamily="@font/comic_neue_bold"/>
                 <RadioGroup
                         android:layout_width="match_parent"
                         android:layout_height="50dp" android:orientation="horizontal" android:id="@+id/sizesSpecials">
@@ -60,17 +61,20 @@
                             android:text="@string/small_string"
                             android:layout_width="0dp"
                             android:layout_height="match_parent" android:id="@+id/radioButton"
-                            android:layout_weight="1" android:onClick="updatePrice"/>
+                            android:layout_weight="1" android:onClick="updatePrice"
+                            android:fontFamily="@font/comic_neue_bold"/>
                     <RadioButton
                             android:text="@string/medium_string"
                             android:layout_width="0dp"
                             android:layout_height="match_parent" android:id="@+id/radioButton2"
-                            android:layout_weight="1" android:onClick="updatePrice"/>
+                            android:layout_weight="1" android:onClick="updatePrice"
+                            android:fontFamily="@font/comic_neue_bold"/>
                     <RadioButton
                             android:text="@string/large_string"
                             android:layout_width="0dp"
                             android:layout_height="match_parent" android:id="@+id/radioButton3"
-                            android:layout_weight="1" android:onClick="updatePrice"/>
+                            android:layout_weight="1" android:onClick="updatePrice"
+                            android:fontFamily="@font/comic_neue_bold"/>
                 </RadioGroup>
             </LinearLayout>
             <androidx.recyclerview.widget.RecyclerView
@@ -87,12 +91,14 @@
                         android:text="@string/extra_sauce_string"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content" android:id="@+id/extraSauceSpecial"
-                        android:layout_weight="1" android:onClick="updatePrice"/>
+                        android:layout_weight="1" android:onClick="updatePrice"
+                        android:fontFamily="@font/comic_neue_bold"/>
                 <CheckBox
                         android:text="@string/extra_cheese_string"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content" android:id="@+id/extraCheeseSpecial"
-                        android:layout_weight="1" android:onClick="updatePrice"/>
+                        android:layout_weight="1" android:onClick="updatePrice"
+                        android:fontFamily="@font/comic_neue_bold"/>
             </LinearLayout>
             <Button
                     android:text="@string/add_string"

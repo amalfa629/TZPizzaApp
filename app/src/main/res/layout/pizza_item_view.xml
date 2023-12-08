@@ -12,7 +12,7 @@
         <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" android:id="@+id/name" android:textAlignment="center"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black" android:fontFamily="@font/comic_neue_bold"/>
         <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
@@ -34,11 +34,11 @@
                             android:text="@string/sauce_string"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" android:id="@+id/textView11"
-                            android:textColor="@color/black"/>
+                            android:textColor="@color/black" android:fontFamily="@font/comic_neue_bold"/>
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" android:id="@+id/sauce"
-                            android:textSize="10sp"/>
+                            android:textSize="10sp" android:fontFamily="@font/comic_neue_bold"/>
                 </LinearLayout>
                 <LinearLayout
                         android:orientation="horizontal"
@@ -48,11 +48,12 @@
                             android:text="@string/toppings_string"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" android:id="@+id/textView13"
-                            android:textColor="@color/black"/>
+                            android:textColor="@color/black" android:fontFamily="@font/comic_neue_bold"/>
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" android:id="@+id/toppingsList"
-                            android:layout_weight="1" android:textSize="10sp"/>
+                            android:layout_weight="1" android:textSize="10sp"
+                            android:fontFamily="@font/comic_neue_bold"/>
                 </LinearLayout>
                 <LinearLayout
                         android:orientation="horizontal"
@@ -62,11 +63,11 @@
                             android:text="@string/size_string"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" android:id="@+id/textView17"
-                            android:textColor="@color/black"/>
+                            android:textColor="@color/black" android:fontFamily="@font/comic_neue_bold"/>
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" android:id="@+id/size"
-                            android:textSize="10sp"/>
+                            android:textSize="10sp" android:fontFamily="@font/comic_neue_bold"/>
                 </LinearLayout>
                 <LinearLayout
                         android:orientation="horizontal"
@@ -76,11 +77,12 @@
                             android:text="@string/price_string"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" android:id="@+id/textView12"
-                            android:textColor="@color/black"/>
+                            android:textColor="@color/black" android:fontFamily="@font/comic_neue_bold"/>
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" android:id="@+id/price"
-                            android:layout_weight="1" android:textSize="10sp"/>
+                            android:layout_weight="1" android:textSize="10sp"
+                            android:fontFamily="@font/comic_neue_bold"/>
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
