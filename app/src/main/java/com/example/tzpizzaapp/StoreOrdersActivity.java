@@ -1,8 +1,6 @@
 package com.example.tzpizzaapp;
 
 import android.content.Context;
-import android.graphics.Color;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +10,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -70,6 +67,9 @@ public class StoreOrdersActivity extends AppCompatActivity {
         }
         else {
             order = StoreOrders.getInstance().getOrder(Integer.parseInt(orderNumbers.get(0)));
+            ArrayAdapter<String> ordersAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, orderNumbers);
+            ordersAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            orders.setAdapter(ordersAdapter);
             updatePizzas();
             orders.setSelection(0);
         }

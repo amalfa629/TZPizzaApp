@@ -43,9 +43,16 @@ public class Order {
      */
     public void removePizza(Pizza pizza) {
         pizzas.remove(pizza);
-        subtotal -= pizza.price();
-        NJStateTax = NJTaxRate*subtotal;
-        total = subtotal + NJStateTax;
+        if(pizzas.isEmpty()) {
+            subtotal = 0;
+            NJStateTax = 0;
+            total = 0;
+        }
+        else {
+            subtotal -= pizza.price();
+            NJStateTax = NJTaxRate * subtotal;
+            total = subtotal + NJStateTax;
+        }
     }
 
     /**
