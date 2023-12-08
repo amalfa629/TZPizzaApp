@@ -86,23 +86,4 @@ public class StoreOrders {
     public ArrayList<Order> getOrders() {
         return orders;
     }
-
-    /**
-     exports the ArrayList of orders to a text file
-     */
-    public void export() {
-        try {
-            FileWriter output = new FileWriter("src/main/resources/com/example/tzpizza/orders.txt");
-            for (Order o : orders) {
-                if(o.getOrderNumber() != currentOrderNumber) {
-                    output.write("Order #" + o.getOrderNumber() + "\n");
-                    for (String pizza : o.getPizzaStringList()) {
-                        output.write(pizza + "\n");
-                    }
-                }
-            }
-            output.close();
-        }
-        catch(Exception ignored) {}
-    }
 }

@@ -22,4 +22,9 @@
     <string name="specials_string">Specials:</string>
     <string name="toppings_string">Toppings:</string>
     <string name="price_string">Price:</string>
+    <string name="subtotal_string">Subtotal:</string>
+    <string name="tax_string">NJ State Tax(6.625%):</string>
+    <string name="total_string">Total:</string>
+    <string name="remove_string">Remove from Order</string>
+    <string name="place_string">Place Order</string>
 </resources>

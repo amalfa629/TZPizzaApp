@@ -8,7 +8,7 @@ import java.util.ArrayList;
  */
 public class Order {
     private int orderNumber;
-    private ArrayList<Pizza> pizzas;
+    private static ArrayList<Pizza> pizzas;
     private double subtotal;
     private double NJStateTax;
     private double total;
@@ -68,54 +68,15 @@ public class Order {
      returns the pizza as a list of selections which are toppings, price, size, and type
      @returns the pizza string
      */
-    public ArrayList<String> getPizzaStringList() {
-        ArrayList<String> output = new ArrayList<String >();
+    public static ArrayList<PizzaItem> getPizzaItemList() {
+        ArrayList<PizzaItem> output = new ArrayList<PizzaItem>();
         for(Pizza pizza: pizzas) {
-            String pizzaType = getTypeString(pizza);
-            StringBuilder toppings = new StringBuilder();
-            for(Topping topping: pizza.getToppings()) {
-                toppings.append(topping.getName()).append(',');
-            }
-            String sauce = pizza.getSauce().name().toLowerCase();
-            toppings.append(sauce.substring(0, 1).toUpperCase()).append(sauce.substring(1)).append(',');
-            if(pizza.isExtraSauce()) {
-                toppings.append("Extra Sauce,");
-            }
-            if(pizza.isExtraCheese()) {
-                toppings.append("Extra Cheese,");
-            }
-            String size = pizza.getSize().name().toLowerCase();
-            size = size.substring(0,1).toUpperCase() + size.substring(1);
-            output.add("[" + size + " " + pizzaType + "] " + toppings + "$" + String.format("%.2f", pizza.price()));
+            String pizzaType = PizzaMaker.getTypeString(pizza);
+            int pizzaImage = PizzaMaker.getTypeImage(pizza);
+            output.add(new PizzaItem(pizzaType, pizza, pizzaImage));
         }
         return output;
     }
-
-    /**
-     gets the type of pizza
-     @param pizza the pizza
-     @return returns the type of pizza as a String
-     */
-    private static String getTypeString(Pizza pizza) {
-        String pizzaType = "BuildYourOwn";
-        if(pizza instanceof Deluxe) {
-            pizzaType = "Deluxe";
-        }
-        else if(pizza instanceof Supreme) {
-            pizzaType = "Supreme";
-        }
-        else if(pizza instanceof Meatzza) {
-            pizzaType = "Meatzza";
-        }
-        else if(pizza instanceof Seafood) {
-            pizzaType = "Seafood";
-        }
-        else if(pizza instanceof Pepperoni) {
-            pizzaType = "Pepperoni";
-        }
-        return pizzaType;
-    }
-
     /**
      gets the subtotal of the order
      @return the subtotal as a double

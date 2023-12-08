@@ -76,19 +76,19 @@ public class SpecialtyActivity extends AppCompatActivity {
         toast.show();
         finish();
     }
-    private class SpecialtyAdapter extends RecyclerView.Adapter<SpecialtyAdapter.PizzaItemViewHolder> {
+    private class SpecialtyAdapter extends RecyclerView.Adapter<SpecialtyAdapter.SpecialtyItemViewHolder> {
         private Context context;
         public SpecialtyAdapter(Context context) {
             this.context = context;
         }
         @NonNull
         @Override
-        public PizzaItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            return new PizzaItemViewHolder(LayoutInflater.from(context).inflate(R.layout.specialty_item_view, parent,  false));
+        public SpecialtyItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            return new SpecialtyItemViewHolder(LayoutInflater.from(context).inflate(R.layout.specialty_item_view, parent,  false));
         }
 
         @Override
-        public void onBindViewHolder(@NonNull PizzaItemViewHolder holder, int position) {
+        public void onBindViewHolder(@NonNull SpecialtyItemViewHolder holder, int position) {
             String sauce = items.get(position).getPizza().getSauce().toString().toLowerCase();
             sauce = sauce.substring(0,1).toUpperCase() + sauce.substring(1);
             holder.sauce.setText(sauce);
@@ -104,10 +104,10 @@ public class SpecialtyActivity extends AppCompatActivity {
             holder.name.setText(items.get(position).getName());
             holder.itemView.setBackgroundColor(selectedPos == position ? Color.LTGRAY : Color.TRANSPARENT);
         }
-        public class PizzaItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        public class SpecialtyItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
             ImageView pizzaImage;
             TextView name, sauce, toppingsList;
-            public PizzaItemViewHolder(@NonNull View itemView) {
+            public SpecialtyItemViewHolder(@NonNull View itemView) {
                 super(itemView);
                 name = itemView.findViewById(R.id.name);
                 pizzaImage = itemView.findViewById(R.id.pizzaImage);

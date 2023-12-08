@@ -5,64 +5,93 @@ import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class CurrentOrderActivity extends AppCompatActivity {
-    TextView orderNumber;
+    List<PizzaItem> items;
+    int selectedPos;
+    TextView orderNumber, subtotal, tax, total;
     RecyclerView pizzaView;
+    Order order;
+    Button removeItem, placeOrder;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_current_order);
         orderNumber= findViewById(R.id.orderNumber);
-        String order = "Order #" + StoreOrders.getInstance().getCurrentOrderNumber();
-        orderNumber.setText(order);
+        int orderInt = StoreOrders.getInstance().getCurrentOrderNumber();
+        String orderString = "Order #" + orderInt;
+        orderNumber.setText(orderString);
+        order = StoreOrders.getInstance().getOrder(orderInt);
         pizzaView = findViewById(R.id.pizzas);
+        items = Order.getPizzaItemList();
+        selectedPos =  RecyclerView.NO_POSITION;
+        pizzaView.setLayoutManager(new LinearLayoutManager(this));
+        pizzaView.setAdapter(new CurrentOrderActivity.CurrentOrderAdapter(getApplicationContext()));
+        removeItem = findViewById(R.id.removeButton);
+        placeOrder = findViewById(R.id.placeButton);
+        subtotal = findViewById(R.id.subtotal);
+        tax = findViewById(R.id.tax);
+        total = findViewById(R.id.total);
     }
-    private class CurrentOrderAdapter extends RecyclerView.Adapter<CurrentOrderActivity.CurrentOrderAdapter.CurrentOrderItemViewHolder> {
+    private void updatePrice() {
+
+    }
+    private class CurrentOrderAdapter extends RecyclerView.Adapter<CurrentOrderAdapter.PizzaItemViewHolder> {
         private Context context;
         public CurrentOrderAdapter(Context context) {
             this.context = context;
         }
         @NonNull
         @Override
-        public CurrentOrderActivity.CurrentOrderAdapter.CurrentOrderItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            return new CurrentOrderActivity.CurrentOrderAdapter.CurrentOrderItemViewHolder(LayoutInflater.from(context).inflate(R.layout.specialty_item_view, parent,  false));
+        public PizzaItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            return new PizzaItemViewHolder(LayoutInflater.from(context).inflate(R.layout.pizza_item_view, parent,  false));
         }
-
         @Override
-        public void onBindViewHolder(@NonNull CurrentOrderActivity.CurrentOrderAdapter.CurrentOrderItemViewHolder holder, int position) {
-            String sauce = items.get(position).getPizza().getSauce().toString().toLowerCase();
+        public void onBindViewHolder(@NonNull PizzaItemViewHolder holder, int position) {
+            Pizza p = items.get(position).getPizza();
+            String sauce = p.getSauce().toString().toLowerCase();
             sauce = sauce.substring(0,1).toUpperCase() + sauce.substring(1);
             holder.sauce.setText(sauce);
-            ArrayList<Topping> toppings = items.get(position).getPizza().getToppings();
             StringBuilder toppingList = new StringBuilder();
-            for(Topping topping: toppings) {
+            for(Topping topping: p.getToppings()) {
                 toppingList.append(topping.getName()).append(", ");
+            }
+            if(p.isExtraSauce()) {
+                toppingList.append("Extra Sauce").append(", ");
+            }
+            if(p.isExtraCheese()) {
+                toppingList.append("Extra Cheese").append(", ");
             }
             String tList = String.valueOf(toppingList);
             tList = toppingList.substring(0, toppingList.length() - 2);
+            String price = "$" + String.format("%.2f", p.price());
+            holder.price.setText(price);
             holder.toppingsList.setText(tList);
             holder.pizzaImage.setImageResource(items.get(position).getImage());
             holder.name.setText(items.get(position).getName());
             holder.itemView.setBackgroundColor(selectedPos == position ? Color.LTGRAY : Color.TRANSPARENT);
         }
-        public class CurrentOrderItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        public class PizzaItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
             ImageView pizzaImage;
-            TextView name, sauce, toppingsList;
-            public CurrentOrderItemViewHolder(@NonNull View itemView) {
+            TextView name, sauce, toppingsList, price;
+            public PizzaItemViewHolder(@NonNull View itemView) {
                 super(itemView);
                 name = itemView.findViewById(R.id.name);
                 pizzaImage = itemView.findViewById(R.id.pizzaImage);
                 sauce = itemView.findViewById(R.id.sauce);
                 toppingsList = itemView.findViewById(R.id.toppingsList);
+                price = itemView.findViewById(R.id.price);
                 itemView.setOnClickListener(this);
             }
             @Override
@@ -71,7 +100,6 @@ public class CurrentOrderActivity extends AppCompatActivity {
                 notifyItemChanged(selectedPos);
                 selectedPos = getAdapterPosition();
                 notifyItemChanged(selectedPos);
-                updatePrice();
             }
         }
         @Override

@@ -76,4 +76,72 @@ public class PizzaMaker {
         items.add(new PizzaItem("Veggie", createPizza("Veggie,SMALL,true,true"), R.drawable.veggie));
         return items;
     }
+    public static String getTypeString(Pizza pizza) {
+        String pizzaType = "Build Your Own";
+        if(pizza instanceof BuffaloChicken) {
+            pizzaType = "Buffalo Chicken";
+        }
+        else if(pizza instanceof Cheeseburger) {
+            pizzaType = "Cheeseburger";
+        }
+        else if(pizza instanceof ChickenParm) {
+            pizzaType = "Chicken Parm";
+        }
+        else if(pizza instanceof Deluxe) {
+            pizzaType = "Deluxe";
+        }
+        else if(pizza instanceof Hawaiian) {
+            pizzaType = "Hawaiian";
+        }
+        else if(pizza instanceof Meatzza) {
+            pizzaType = "Meatzza";
+        }
+        else if(pizza instanceof Pepperoni) {
+            pizzaType = "Pepperoni";
+        }
+        else if(pizza instanceof Seafood) {
+            pizzaType = "Seafood";
+        }
+        else if(pizza instanceof Supreme) {
+            pizzaType = "Supreme";
+        }
+        else if(pizza instanceof Veggie) {
+            pizzaType = "Veggie";
+        }
+        return pizzaType;
+    }
+    public static int getTypeImage(Pizza pizza) {
+        int pizzaImage = R.drawable.build;
+        if(pizza instanceof BuffaloChicken) {
+            pizzaImage = R.drawable.buffalochicken;
+        }
+        else if(pizza instanceof Cheeseburger) {
+            pizzaImage = R.drawable.cheeseburger;
+        }
+        else if(pizza instanceof ChickenParm) {
+            pizzaImage = R.drawable.chickenparm;
+        }
+        else if(pizza instanceof Deluxe) {
+            pizzaImage = R.drawable.deluxe;
+        }
+        else if(pizza instanceof Hawaiian) {
+            pizzaImage = R.drawable.hawaiian;
+        }
+        else if(pizza instanceof Meatzza) {
+            pizzaImage = R.drawable.meatzza;
+        }
+        else if(pizza instanceof Pepperoni) {
+            pizzaImage = R.drawable.pepperoni;
+        }
+        else if(pizza instanceof Seafood) {
+            pizzaImage = R.drawable.seafood;
+        }
+        else if(pizza instanceof Supreme) {
+            pizzaImage = R.drawable.supreme;
+        }
+        else if(pizza instanceof Veggie) {
+            pizzaImage = R.drawable.veggie;
+        }
+        return pizzaImage;
+    }
 }

@@ -1,5 +1,6 @@
 package com.example.tzpizzaapp;
 
+import android.content.Context;
 import android.util.Log;
 import android.view.View;
 import android.widget.*;
@@ -10,6 +11,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class BuildYourOwnActivity extends AppCompatActivity {
+    Context context;
     Pizza pizza;
     Size size;
     RadioGroup sizes;
@@ -29,6 +31,7 @@ public class BuildYourOwnActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_build_your_own);
+        context = this;
         sizes = findViewById(R.id.sizesBYO);
         sauces = findViewById(R.id.sauces);
         availableToppings = findViewById(R.id.availableToppings);
@@ -78,13 +81,19 @@ public class BuildYourOwnActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String topping = (String)parent.getItemAtPosition(position);
                 if(!topping.equals(defaultAvailable)) {
-                    availableToppingsList.remove(topping);
-                    selectedToppingsList.remove(defaultSelected);
-                    selectedToppingsList.add(topping);
-                    Collections.sort(selectedToppingsList);
-                    selectedToppingsList.add(0, defaultSelected);
-                    availableToppings.setSelection(0);
-                    selectedToppings.setSelection(0);
+                    if(selectedToppingsList.size() <= 7) {
+                        availableToppingsList.remove(topping);
+                        selectedToppingsList.remove(defaultSelected);
+                        selectedToppingsList.add(topping);
+                        Collections.sort(selectedToppingsList);
+                        selectedToppingsList.add(0, defaultSelected);
+                        availableToppings.setSelection(0);
+                        selectedToppings.setSelection(0);
+                    }
+                    else {
+                        Toast toast = Toast.makeText(context, "Too Many Toppings", Toast.LENGTH_SHORT);
+                        toast.show();
+                    }
                 }
                 updatePrice(view);
             }
@@ -119,7 +128,7 @@ public class BuildYourOwnActivity extends AppCompatActivity {
         order = findViewById(R.id.orderButtonBYO);
     }
     public void updatePrice(View view) {
-        if((size != null) && (sauce != null) && (selectedToppingsList.size() > 3) && (selectedToppingsList.size() <= 7)) {
+        if((size != null) && (sauce != null) && (selectedToppingsList.size() > 3)) {
             StringBuilder toppingsString = new StringBuilder();
             for(String t: selectedToppingsList) {
                 if(!t.equals(defaultSelected)) toppingsString.append(t).append(';');
