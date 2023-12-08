@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
@@ -23,7 +24,7 @@ public class CurrentOrderActivity extends AppCompatActivity {
     TextView orderNumber, subtotal, tax, total;
     RecyclerView pizzaView;
     Order order;
-    Button removeItem, placeOrder;
+    Button removeItem;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,18 +35,44 @@ public class CurrentOrderActivity extends AppCompatActivity {
         orderNumber.setText(orderString);
         order = StoreOrders.getInstance().getOrder(orderInt);
         pizzaView = findViewById(R.id.pizzas);
-        items = Order.getPizzaItemList();
+        items = order.getPizzaItemList();
         selectedPos =  RecyclerView.NO_POSITION;
         pizzaView.setLayoutManager(new LinearLayoutManager(this));
         pizzaView.setAdapter(new CurrentOrderActivity.CurrentOrderAdapter(getApplicationContext()));
         removeItem = findViewById(R.id.removeButton);
-        placeOrder = findViewById(R.id.placeButton);
         subtotal = findViewById(R.id.subtotal);
         tax = findViewById(R.id.tax);
         total = findViewById(R.id.total);
+        updatePrice();
     }
     private void updatePrice() {
-
+        String subtotalString = "$" + String.format("%.2f", order.getSubtotal());
+        subtotal.setText(subtotalString);
+        String taxString = "$" + String.format("%.2f", order.getNJStateTax());
+        tax.setText(taxString);
+        String totalString = "$" + String.format("%.2f", order.getTotal());
+        total.setText(totalString);
+    }
+    public void onRemoveButtonClick(View view) {
+        order.removePizza(order.getPizzaList().get(selectedPos));
+        items = order.getPizzaItemList();
+        selectedPos =  RecyclerView.NO_POSITION;
+        pizzaView.setLayoutManager(new LinearLayoutManager(this));
+        pizzaView.setAdapter(new CurrentOrderActivity.CurrentOrderAdapter(getApplicationContext()));
+        removeItem.setEnabled(false);
+        updatePrice();
+    }
+    public void onPlaceButtonClick(View view) {
+        if(!order.getPizzaItemList().isEmpty()) {
+            StoreOrders.getInstance().newOrder();
+            Toast toast = Toast.makeText(this, "Placing order...", Toast.LENGTH_SHORT);
+            toast.show();
+            finish();
+        }
+        else {
+            Toast toast = Toast.makeText(this, "No Pizzas in Order", Toast.LENGTH_SHORT);
+            toast.show();
+        }
     }
     private class CurrentOrderAdapter extends RecyclerView.Adapter<CurrentOrderAdapter.PizzaItemViewHolder> {
         private Context context;
@@ -76,7 +103,10 @@ public class CurrentOrderActivity extends AppCompatActivity {
             String tList = String.valueOf(toppingList);
             tList = toppingList.substring(0, toppingList.length() - 2);
             String price = "$" + String.format("%.2f", p.price());
+            String size = p.getSize().toString();
+            size = size.charAt(0) + size.substring(1).toLowerCase();
             holder.price.setText(price);
+            holder.size.setText(size);
             holder.toppingsList.setText(tList);
             holder.pizzaImage.setImageResource(items.get(position).getImage());
             holder.name.setText(items.get(position).getName());
@@ -84,22 +114,26 @@ public class CurrentOrderActivity extends AppCompatActivity {
         }
         public class PizzaItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
             ImageView pizzaImage;
-            TextView name, sauce, toppingsList, price;
+            TextView name, sauce, toppingsList, size, price;
             public PizzaItemViewHolder(@NonNull View itemView) {
                 super(itemView);
                 name = itemView.findViewById(R.id.name);
                 pizzaImage = itemView.findViewById(R.id.pizzaImage);
                 sauce = itemView.findViewById(R.id.sauce);
                 toppingsList = itemView.findViewById(R.id.toppingsList);
+                size = itemView.findViewById(R.id.size);
                 price = itemView.findViewById(R.id.price);
                 itemView.setOnClickListener(this);
             }
             @Override
             public void onClick(View view) {
-                if (getAdapterPosition() == RecyclerView.NO_POSITION) return;
-                notifyItemChanged(selectedPos);
-                selectedPos = getAdapterPosition();
-                notifyItemChanged(selectedPos);
+                if (getAdapterPosition() == RecyclerView.NO_POSITION) removeItem.setEnabled(false);
+                else {
+                    notifyItemChanged(selectedPos);
+                    selectedPos = getAdapterPosition();
+                    notifyItemChanged(selectedPos);
+                    removeItem.setEnabled(true);
+                }
             }
         }
         @Override

@@ -17,7 +17,7 @@ public class StoreOrders {
         newOrder();
     }
     public static synchronized StoreOrders getInstance() {
-        if(instance ==null) {
+        if(instance == null) {
             synchronized(StoreOrders.class) {
                 if(instance == null) instance = new StoreOrders();
             }

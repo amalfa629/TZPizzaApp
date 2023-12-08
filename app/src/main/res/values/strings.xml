@@ -27,4 +27,6 @@
     <string name="total_string">Total:</string>
     <string name="remove_string">Remove from Order</string>
     <string name="place_string">Place Order</string>
+    <string name="order_number_string">Order #</string>
+    <string name="cancel_string">Cancel Order</string>
 </resources>

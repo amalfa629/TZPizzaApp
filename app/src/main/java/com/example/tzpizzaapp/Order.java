@@ -8,7 +8,7 @@ import java.util.ArrayList;
  */
 public class Order {
     private int orderNumber;
-    private static ArrayList<Pizza> pizzas;
+    private ArrayList<Pizza> pizzas;
     private double subtotal;
     private double NJStateTax;
     private double total;
@@ -68,7 +68,7 @@ public class Order {
      returns the pizza as a list of selections which are toppings, price, size, and type
      @returns the pizza string
      */
-    public static ArrayList<PizzaItem> getPizzaItemList() {
+    public ArrayList<PizzaItem> getPizzaItemList() {
         ArrayList<PizzaItem> output = new ArrayList<PizzaItem>();
         for(Pizza pizza: pizzas) {
             String pizzaType = PizzaMaker.getTypeString(pizza);

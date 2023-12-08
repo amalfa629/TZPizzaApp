@@ -19,7 +19,7 @@ public class SpecialtyActivity extends AppCompatActivity {
     static List<PizzaItem> items;
     static int selectedPos;
     static Pizza pizza;
-    static Size size;
+    Size size;
     RadioGroup sizes;
     RecyclerView specialtyView;
     CheckBox extraSauceCheck;

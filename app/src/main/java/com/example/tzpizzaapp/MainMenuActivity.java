@@ -2,6 +2,7 @@ package com.example.tzpizzaapp;
 
 import android.content.Intent;
 import android.view.View;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -24,7 +25,13 @@ public class MainMenuActivity extends AppCompatActivity {
         startActivity(intent);
     }
     public void storeOrdersClick(View view) {
-        Intent intent = new Intent(this, StoreOrdersActivity.class);
-        startActivity(intent);
+        if(StoreOrders.getInstance().getOrders().size() > 1) {
+            Intent intent = new Intent(this, StoreOrdersActivity.class);
+            startActivity(intent);
+        }
+        else {
+            Toast toast = Toast.makeText(this, "No Orders Placed", Toast.LENGTH_SHORT);
+            toast.show();
+        }
     }
 }

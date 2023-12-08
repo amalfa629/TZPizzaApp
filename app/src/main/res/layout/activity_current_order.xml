@@ -45,12 +45,14 @@
                         android:text="@string/remove_string"
                         android:layout_width="0dp"
                         android:layout_height="match_parent" android:id="@+id/removeButton" android:layout_weight="1"
-                        android:backgroundTint="@color/black" android:enabled="false" android:textSize="16sp"/>
+                        android:backgroundTint="@color/black" android:enabled="false" android:textSize="16sp"
+                        android:onClick="onRemoveButtonClick"/>
                 <Button
                         android:text="@string/place_string"
                         android:layout_width="0dp"
                         android:layout_height="match_parent" android:id="@+id/placeButton" android:layout_weight="1"
-                        android:backgroundTint="@color/black" android:textSize="16sp"/>
+                        android:backgroundTint="@color/black" android:textSize="16sp"
+                        android:onClick="onPlaceButtonClick"/>
             </LinearLayout>
             <LinearLayout
                     android:orientation="horizontal"
@@ -64,7 +66,8 @@
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent" android:id="@+id/subtotal" android:layout_weight="4"
-                        android:background="@drawable/order_back"/>
+                        android:background="@drawable/order_back" android:textColor="@color/black"
+                        android:textSize="16sp"/>
             </LinearLayout>
             <LinearLayout
                     android:orientation="horizontal"
