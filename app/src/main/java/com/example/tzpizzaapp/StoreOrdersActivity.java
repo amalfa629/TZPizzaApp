@@ -1,6 +1,8 @@
 package com.example.tzpizzaapp;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +14,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
+
+import static android.app.PendingIntent.getActivity;
 
 public class StoreOrdersActivity extends AppCompatActivity {
     Context context;
@@ -58,21 +62,33 @@ public class StoreOrdersActivity extends AppCompatActivity {
         total.setText(totalString);
     }
     public void onCancelButtonClick(View view) {
-        orderNumbers.remove(String.valueOf(order.getOrderNumber()));
-        StoreOrders.getInstance().cancelOrder(order.getOrderNumber());
-        if(orderNumbers.isEmpty()) {
-            Toast toast = Toast.makeText(this, "No Orders Placed", Toast.LENGTH_SHORT);
-            toast.show();
-            finish();
-        }
-        else {
-            order = StoreOrders.getInstance().getOrder(Integer.parseInt(orderNumbers.get(0)));
-            ArrayAdapter<String> ordersAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, orderNumbers);
-            ordersAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            orders.setAdapter(ordersAdapter);
-            updatePizzas();
-            orders.setSelection(0);
-        }
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setMessage("Confirm Cancel").setTitle("Do you want to cancel order #" + order.getOrderNumber() + "?");
+        builder.setPositiveButton("Cancel", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                orderNumbers.remove(String.valueOf(order.getOrderNumber()));
+                StoreOrders.getInstance().cancelOrder(order.getOrderNumber());
+                if(orderNumbers.isEmpty()) {
+                    Toast toast = Toast.makeText(context, "No Orders Placed", Toast.LENGTH_SHORT);
+                    toast.show();
+                    finish();
+                }
+                else {
+                    order = StoreOrders.getInstance().getOrder(Integer.parseInt(orderNumbers.get(0)));
+                    ArrayAdapter<String> ordersAdapter = new ArrayAdapter<String>(context, android.R.layout.simple_list_item_1, orderNumbers);
+                    ordersAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    orders.setAdapter(ordersAdapter);
+                    updatePizzas();
+                    orders.setSelection(0);
+                }
+            }
+        });
+        builder.setNegativeButton("Don't Cancel", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
     private class StoreOrdersAdapter extends RecyclerView.Adapter<StoreOrdersAdapter.PizzaItemViewHolder> {
         private Context context;
