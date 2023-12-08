@@ -1,10 +1,10 @@
 package com.example.tzpizzaapp;
 
-public class SpecialtyItem {
+public class PizzaItem {
     private String name;
     private Pizza pizza;
     private int image;
-    public SpecialtyItem(String name, Pizza pizza, int image) {
+    public PizzaItem(String name, Pizza pizza, int image) {
         this.name = name;
         this.pizza = pizza;
         this.image = image;
@@ -17,5 +17,8 @@ public class SpecialtyItem {
     }
     public int getImage() {
         return image;
+    }
+    public double getPrice() {
+        return pizza.price();
     }
 }

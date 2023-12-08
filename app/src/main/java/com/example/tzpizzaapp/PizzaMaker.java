@@ -62,18 +62,18 @@ public class PizzaMaker {
         }
         return pizza;
     }
-    public static ArrayList<SpecialtyItem> getPizzaTypes() {
-        ArrayList<SpecialtyItem> items = new ArrayList<SpecialtyItem>();
-        items.add(new SpecialtyItem("Buffalo Chicken", createPizza("Buffalo Chicken,SMALL,true,true"), R.drawable.buffalochicken));
-        items.add(new SpecialtyItem("Cheeseburger", createPizza("Cheeseburger,SMALL,true,true"), R.drawable.cheeseburger));
-        items.add(new SpecialtyItem("Chicken Parm", createPizza("Chicken Parm,SMALL,true,true"), R.drawable.chickenparm));
-        items.add(new SpecialtyItem("Deluxe", createPizza("Deluxe,SMALL,true,true"), R.drawable.deluxe));
-        items.add(new SpecialtyItem("Hawaiian", createPizza("Hawaiian,SMALL,true,true"), R.drawable.hawaiian));
-        items.add(new SpecialtyItem("Meatzza", createPizza("Meatzza,SMALL,true,true"), R.drawable.meatzza));
-        items.add(new SpecialtyItem("Pepperoni", createPizza("Pepperoni,SMALL,true,true"), R.drawable.pepperoni));
-        items.add(new SpecialtyItem("Seafood", createPizza("Seafood,SMALL,true,true"), R.drawable.seafood));
-        items.add(new SpecialtyItem("Supreme", createPizza("Supreme,SMALL,true,true"), R.drawable.supreme));
-        items.add(new SpecialtyItem("Veggie", createPizza("Veggie,SMALL,true,true"), R.drawable.veggie));
+    public static ArrayList<PizzaItem> getPizzaTypes() {
+        ArrayList<PizzaItem> items = new ArrayList<PizzaItem>();
+        items.add(new PizzaItem("Buffalo Chicken", createPizza("Buffalo Chicken,SMALL,true,true"), R.drawable.buffalochicken));
+        items.add(new PizzaItem("Cheeseburger", createPizza("Cheeseburger,SMALL,true,true"), R.drawable.cheeseburger));
+        items.add(new PizzaItem("Chicken Parm", createPizza("Chicken Parm,SMALL,true,true"), R.drawable.chickenparm));
+        items.add(new PizzaItem("Deluxe", createPizza("Deluxe,SMALL,true,true"), R.drawable.deluxe));
+        items.add(new PizzaItem("Hawaiian", createPizza("Hawaiian,SMALL,true,true"), R.drawable.hawaiian));
+        items.add(new PizzaItem("Meatzza", createPizza("Meatzza,SMALL,true,true"), R.drawable.meatzza));
+        items.add(new PizzaItem("Pepperoni", createPizza("Pepperoni,SMALL,true,true"), R.drawable.pepperoni));
+        items.add(new PizzaItem("Seafood", createPizza("Seafood,SMALL,true,true"), R.drawable.seafood));
+        items.add(new PizzaItem("Supreme", createPizza("Supreme,SMALL,true,true"), R.drawable.supreme));
+        items.add(new PizzaItem("Veggie", createPizza("Veggie,SMALL,true,true"), R.drawable.veggie));
         return items;
     }
 }

@@ -54,20 +54,6 @@
                             android:layout_height="wrap_content" android:id="@+id/toppingsList"
                             android:layout_weight="1" android:textSize="10sp"/>
                 </LinearLayout>
-                <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-                    <TextView
-                            android:text="@string/price_string"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" android:id="@+id/textView12"
-                            android:textColor="@color/black"/>
-                    <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" android:id="@+id/price"
-                            android:layout_weight="1" android:textSize="10sp"/>
-                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
