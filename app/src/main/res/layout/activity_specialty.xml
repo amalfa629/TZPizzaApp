@@ -55,28 +55,29 @@
                         android:textColor="@color/black" android:textSize="20sp" android:gravity="center"/>
                 <RadioGroup
                         android:layout_width="match_parent"
-                        android:layout_height="50dp" android:orientation="horizontal" android:id="@+id/sizes">
+                        android:layout_height="50dp" android:orientation="horizontal" android:id="@+id/sizesSpecials">
                     <RadioButton
                             android:text="@string/small_string"
                             android:layout_width="0dp"
                             android:layout_height="match_parent" android:id="@+id/radioButton"
-                            android:layout_weight="1"/>
+                            android:layout_weight="1" android:onClick="updatePrice"/>
                     <RadioButton
                             android:text="@string/medium_string"
                             android:layout_width="0dp"
                             android:layout_height="match_parent" android:id="@+id/radioButton2"
-                            android:layout_weight="1"/>
+                            android:layout_weight="1" android:onClick="updatePrice"/>
                     <RadioButton
                             android:text="@string/large_string"
                             android:layout_width="0dp"
                             android:layout_height="match_parent" android:id="@+id/radioButton3"
-                            android:layout_weight="1"/>
+                            android:layout_weight="1" android:onClick="updatePrice"/>
                 </RadioGroup>
             </LinearLayout>
             <androidx.recyclerview.widget.RecyclerView
                     android:layout_width="match_parent"
                     android:layout_height="160dp" android:id="@+id/specials"
-                    android:nestedScrollingEnabled="false">
+                    android:nestedScrollingEnabled="false" android:focusable="auto"
+                    android:focusableInTouchMode="true" android:clickable="true">
             </androidx.recyclerview.widget.RecyclerView>
             <LinearLayout
                     android:orientation="horizontal"
@@ -86,19 +87,19 @@
                         android:text="@string/extra_sauce_string"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content" android:id="@+id/extraSauceSpecial"
-                        android:layout_weight="1"/>
+                        android:layout_weight="1" android:onClick="updatePrice"/>
                 <CheckBox
                         android:text="@string/extra_cheese_string"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content" android:id="@+id/extraCheeseSpecial"
-                        android:layout_weight="1"/>
+                        android:layout_weight="1" android:onClick="updatePrice"/>
             </LinearLayout>
             <Button
                     android:text="@string/add_string"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" android:id="@+id/button"
+                    android:layout_height="wrap_content" android:id="@+id/orderButtonSpecial"
                     android:backgroundTint="@color/black" android:fontFamily="@font/comic_neue_bold"
-                    android:textSize="16sp"/>
+                    android:textSize="16sp" android:enabled="false" android:onClick="orderPizza"/>
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

@@ -20,13 +20,13 @@ public class PizzaMaker {
         boolean extraSauce = commands[2].equals("true");
         boolean extraCheese = commands[3].equals("true");
         switch(type) {
-            case "BuffaloChicken":
+            case "Buffalo Chicken":
                 pizza = new BuffaloChicken(size, extraSauce, extraCheese);
                 break;
             case "Cheeseburger":
                 pizza = new Cheeseburger(size, extraSauce, extraCheese);
                 break;
-            case "ChickenParm":
+            case "Chicken Parm":
                 pizza = new ChickenParm(size, extraSauce,extraCheese);
                 break;
             case "Deluxe":
@@ -64,9 +64,9 @@ public class PizzaMaker {
     }
     public static ArrayList<SpecialtyItem> getPizzaTypes() {
         ArrayList<SpecialtyItem> items = new ArrayList<SpecialtyItem>();
-        items.add(new SpecialtyItem("Buffalo Chicken", createPizza("BuffaloChicken,SMALL,true,true"), R.drawable.buffalochicken));
+        items.add(new SpecialtyItem("Buffalo Chicken", createPizza("Buffalo Chicken,SMALL,true,true"), R.drawable.buffalochicken));
         items.add(new SpecialtyItem("Cheeseburger", createPizza("Cheeseburger,SMALL,true,true"), R.drawable.cheeseburger));
-        items.add(new SpecialtyItem("Chicken Parm", createPizza("ChickenParm,SMALL,true,true"), R.drawable.chickenparm));
+        items.add(new SpecialtyItem("Chicken Parm", createPizza("Chicken Parm,SMALL,true,true"), R.drawable.chickenparm));
         items.add(new SpecialtyItem("Deluxe", createPizza("Deluxe,SMALL,true,true"), R.drawable.deluxe));
         items.add(new SpecialtyItem("Hawaiian", createPizza("Hawaiian,SMALL,true,true"), R.drawable.hawaiian));
         items.add(new SpecialtyItem("Meatzza", createPizza("Meatzza,SMALL,true,true"), R.drawable.meatzza));

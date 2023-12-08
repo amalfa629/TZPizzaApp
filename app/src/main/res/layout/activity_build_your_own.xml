@@ -55,22 +55,22 @@
                         android:textColor="@color/black" android:textSize="20sp" android:gravity="center"/>
                 <RadioGroup
                         android:layout_width="match_parent"
-                        android:layout_height="50dp" android:orientation="horizontal" android:id="@+id/sizes">
+                        android:layout_height="50dp" android:orientation="horizontal" android:id="@+id/sizesBYO">
                     <RadioButton
                             android:text="@string/small_string"
                             android:layout_width="0dp"
                             android:layout_height="match_parent" android:id="@+id/radioButton"
-                            android:layout_weight="1"/>
+                            android:layout_weight="1" android:onClick="updatePrice"/>
                     <RadioButton
                             android:text="@string/medium_string"
                             android:layout_width="0dp"
                             android:layout_height="match_parent" android:id="@+id/radioButton2"
-                            android:layout_weight="1"/>
+                            android:layout_weight="1" android:onClick="updatePrice"/>
                     <RadioButton
                             android:text="@string/large_string"
                             android:layout_width="0dp"
                             android:layout_height="match_parent" android:id="@+id/radioButton3"
-                            android:layout_weight="1"/>
+                            android:layout_weight="1" android:onClick="updatePrice"/>
                 </RadioGroup>
             </LinearLayout>
             <LinearLayout
@@ -130,19 +130,21 @@
                         android:text="@string/extra_sauce_string"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" android:id="@+id/extraSauceBYO" android:layout_weight="1"
-                        android:textAlignment="viewStart" android:textColor="@color/black"/>
+                        android:textAlignment="viewStart" android:textColor="@color/black"
+                        android:onClick="updatePrice"/>
                 <CheckBox
                         android:text="@string/extra_cheese_string"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" android:id="@+id/extraCheeseBYO"
-                        android:layout_weight="1" android:textAlignment="viewStart" android:textColor="@color/black"/>
+                        android:layout_weight="1" android:textAlignment="viewStart" android:textColor="@color/black"
+                        android:onClick="updatePrice"/>
             </LinearLayout>
             <Button
                     android:text="@string/add_string"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" android:id="@+id/button"
+                    android:layout_height="wrap_content" android:id="@+id/orderButtonBYO"
                     android:backgroundTint="@color/black" android:fontFamily="@font/comic_neue_bold"
-                    android:textSize="16sp"/>
+                    android:textSize="16sp" android:enabled="false" android:onClick="orderPizza"/>
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

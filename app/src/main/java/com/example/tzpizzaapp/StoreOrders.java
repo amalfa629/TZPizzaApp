@@ -8,12 +8,21 @@ import java.util.ArrayList;
  @author Tyler Amalfa, Zafar Khan
  */
 public class StoreOrders {
+    private static volatile StoreOrders instance;
     private static int currentOrderNumber;
     private ArrayList<Order> orders;
-    public StoreOrders() {
+    private StoreOrders() {
         orders = new ArrayList<Order>();
         currentOrderNumber = 0;
         newOrder();
+    }
+    public static synchronized StoreOrders getInstance() {
+        if(instance ==null) {
+            synchronized(StoreOrders.class) {
+                if(instance == null) instance = new StoreOrders();
+            }
+        }
+        return instance;
     }
 
     /**
