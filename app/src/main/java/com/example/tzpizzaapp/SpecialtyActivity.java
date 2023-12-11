@@ -15,6 +15,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ the specialty pizza screen for the app
+ @author Tyler Amalfa, Zafar Khan
+ */
 public class SpecialtyActivity extends AppCompatActivity {
     static List<PizzaItem> items;
     static int selectedPos;
@@ -25,12 +29,22 @@ public class SpecialtyActivity extends AppCompatActivity {
     CheckBox extraSauceCheck;
     CheckBox extraCheeseCheck;
     Button order;
+
+    /**
+     creates the screen for the specialty pizza page
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_specialty);
         sizes = findViewById(R.id.sizesSpecials);
         sizes.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            /**
+             checks if the size of the pizza has changed
+             * @param radioGroup
+             * @param checkedId
+             */
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int checkedId) {
                 RadioButton checkedRadioButton = (RadioButton)radioGroup.findViewById(checkedId);
@@ -45,6 +59,10 @@ public class SpecialtyActivity extends AppCompatActivity {
         specialtyView.setLayoutManager(new LinearLayoutManager(this));
         specialtyView.setAdapter(new SpecialtyAdapter(getApplicationContext()));
         specialtyView.setOnClickListener(new View.OnClickListener() {
+            /**
+             updates price with every selection
+             * @param view
+             */
             @Override
             public void onClick(View view) {
                 updatePrice(view);
@@ -54,6 +72,11 @@ public class SpecialtyActivity extends AppCompatActivity {
         extraCheeseCheck = findViewById(R.id.extraCheeseSpecial);
         order = findViewById(R.id.orderButtonSpecial);
     }
+
+    /**
+     updates the price based on pizza selection
+     * @param view
+     */
     public void updatePrice(View view) {
         if((size != null) && (selectedPos != -1)) {
             boolean extraSauce = extraSauceCheck.isSelected();
@@ -69,6 +92,11 @@ public class SpecialtyActivity extends AppCompatActivity {
             order.setEnabled(false);
         }
     }
+
+    /**
+     adds pizza to the current order
+     * @param view
+     */
     public void orderPizza(View view) {
         StoreOrders store = StoreOrders.getInstance();
         store.getOrder(store.getCurrentOrderNumber()).addPizza(pizza);
@@ -76,6 +104,9 @@ public class SpecialtyActivity extends AppCompatActivity {
         toast.show();
         finish();
     }
+    /**
+     contains the recycler
+     */
     private class SpecialtyAdapter extends RecyclerView.Adapter<SpecialtyAdapter.SpecialtyItemViewHolder> {
         private Context context;
         public SpecialtyAdapter(Context context) {
@@ -87,6 +118,12 @@ public class SpecialtyActivity extends AppCompatActivity {
             return new SpecialtyItemViewHolder(LayoutInflater.from(context).inflate(R.layout.specialty_item_view, parent,  false));
         }
 
+        /**
+         generates new item holders as you scroll down the view
+         * @param holder The ViewHolder which should be updated to represent the contents of the
+         *        item at the given position in the data set.
+         * @param position The position of the item within the adapter's data set.
+         */
         @Override
         public void onBindViewHolder(@NonNull SpecialtyItemViewHolder holder, int position) {
             String sauce = items.get(position).getPizza().getSauce().toString().toLowerCase();
@@ -104,6 +141,10 @@ public class SpecialtyActivity extends AppCompatActivity {
             holder.name.setText(items.get(position).getName());
             holder.itemView.setBackgroundColor(selectedPos == position ? Color.LTGRAY : Color.TRANSPARENT);
         }
+
+        /**
+         holds each individual item
+         */
         public class SpecialtyItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
             ImageView pizzaImage;
             TextView name, sauce, toppingsList;
@@ -115,6 +156,10 @@ public class SpecialtyActivity extends AppCompatActivity {
                 toppingsList = itemView.findViewById(R.id.toppingsList);
                 itemView.setOnClickListener(this);
             }
+
+            /**
+             updates the price of the pizza based on different selections
+             */
             private void updatePrice() {
                 if((size != null) && (selectedPos != -1)) {
                     boolean extraSauce = extraSauceCheck.isSelected();
@@ -130,6 +175,11 @@ public class SpecialtyActivity extends AppCompatActivity {
                     order.setEnabled(false);
                 }
             }
+
+            /**
+             selects the specialty pizza holder
+             * @param view
+             */
             @Override
             public void onClick(View view) {
                 if (getAdapterPosition() == RecyclerView.NO_POSITION) return;
@@ -139,6 +189,11 @@ public class SpecialtyActivity extends AppCompatActivity {
                 updatePrice();
             }
         }
+
+        /**
+         returns the number of items as an int
+         @return number of items
+         */
         @Override
         public int getItemCount() {
             return items.size();

@@ -62,6 +62,11 @@ public class PizzaMaker {
         }
         return pizza;
     }
+
+    /**
+     Initializes the different types of pizza with their images and adds them to a list of PizzaItems
+     @return returns the items
+     */
     public static ArrayList<PizzaItem> getPizzaTypes() {
         ArrayList<PizzaItem> items = new ArrayList<PizzaItem>();
         items.add(new PizzaItem("Buffalo Chicken", createPizza("Buffalo Chicken,SMALL,true,true"), R.drawable.buffalochicken));
@@ -76,6 +81,12 @@ public class PizzaMaker {
         items.add(new PizzaItem("Veggie", createPizza("Veggie,SMALL,true,true"), R.drawable.veggie));
         return items;
     }
+
+    /**
+     gets the type of the pizza and returns it as a string
+     @param pizza the pizza
+     @return the type of the pizza of the string
+     */
     public static String getTypeString(Pizza pizza) {
         String pizzaType = "Build Your Own";
         if(pizza instanceof BuffaloChicken) {
@@ -110,6 +121,12 @@ public class PizzaMaker {
         }
         return pizzaType;
     }
+
+    /**
+     returns the image of the pizza based on the type
+     @param pizza the pizza
+     @return returns the image of the pizza
+     */
     public static int getTypeImage(Pizza pizza) {
         int pizzaImage = R.drawable.build;
         if(pizza instanceof BuffaloChicken) {

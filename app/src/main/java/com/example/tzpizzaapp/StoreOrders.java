@@ -16,6 +16,11 @@ public class StoreOrders {
         currentOrderNumber = 0;
         newOrder();
     }
+
+    /**
+     implements singleton structure in order to share data between all the activities
+     @return returns the instance of store orders
+     */
     public static synchronized StoreOrders getInstance() {
         if(instance == null) {
             synchronized(StoreOrders.class) {

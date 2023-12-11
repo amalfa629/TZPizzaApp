@@ -17,6 +17,10 @@ import java.util.List;
 
 import static android.app.PendingIntent.getActivity;
 
+/**
+ the store orders screen for the app
+ @author Tyler Amalfa, Zafar Khan
+ */
 public class StoreOrdersActivity extends AppCompatActivity {
     Context context;
     List<PizzaItem> items;
@@ -25,6 +29,11 @@ public class StoreOrdersActivity extends AppCompatActivity {
     RecyclerView pizzaView;
     Spinner orders;
     Order order;
+
+    /**
+     creates the screen for the store orders page
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +51,13 @@ public class StoreOrdersActivity extends AppCompatActivity {
         ordersAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         orders.setAdapter(ordersAdapter);
         orders.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            /**
+             displays order details on the screen based on the order selected
+             * @param parent
+             * @param view
+             * @param position
+             * @param id
+             */
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 order = StoreOrders.getInstance().getOrder(Integer.parseInt(orderNumbers.get(position)));
@@ -53,6 +69,10 @@ public class StoreOrdersActivity extends AppCompatActivity {
         pizzaView = findViewById(R.id.pizzasStore);
         updatePizzas();
     }
+
+    /**
+     updates the total price of the order
+     */
     private void updatePizzas() {
         items = order.getPizzaItemList();
         pizzaView.setLayoutManager(new LinearLayoutManager(this));
@@ -61,10 +81,20 @@ public class StoreOrdersActivity extends AppCompatActivity {
         String totalString = "$" + String.format("%.2f", order.getTotal());
         total.setText(totalString);
     }
+
+    /**
+     cancels an order and removes it from the store orders
+     * @param view
+     */
     public void onCancelButtonClick(View view) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setMessage("Confirm Cancel").setTitle("Do you want to cancel order #" + order.getOrderNumber() + "?");
         builder.setPositiveButton("Cancel", new DialogInterface.OnClickListener() {
+            /**
+             cancels the order
+             * @param dialog
+             * @param id
+             */
             public void onClick(DialogInterface dialog, int id) {
                 orderNumbers.remove(String.valueOf(order.getOrderNumber()));
                 StoreOrders.getInstance().cancelOrder(order.getOrderNumber());
@@ -84,12 +114,21 @@ public class StoreOrdersActivity extends AppCompatActivity {
             }
         });
         builder.setNegativeButton("Don't Cancel", new DialogInterface.OnClickListener() {
+            /**
+             doesn't cancel the order
+             * @param dialog
+             * @param id
+             */
             public void onClick(DialogInterface dialog, int id) {
             }
         });
         AlertDialog dialog = builder.create();
         dialog.show();
     }
+
+    /**
+     contains the recycler
+     */
     private class StoreOrdersAdapter extends RecyclerView.Adapter<StoreOrdersAdapter.PizzaItemViewHolder> {
         private Context context;
         public StoreOrdersAdapter(Context context) {
@@ -100,6 +139,13 @@ public class StoreOrdersActivity extends AppCompatActivity {
         public PizzaItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             return new PizzaItemViewHolder(LayoutInflater.from(context).inflate(R.layout.pizza_item_view, parent,  false));
         }
+
+        /**
+         generates new item holder as you scroll down the view
+         * @param holder The ViewHolder which should be updated to represent the contents of the
+         *        item at the given position in the data set.
+         * @param position The position of the item within the adapter's data set.
+         */
         @Override
         public void onBindViewHolder(@NonNull PizzaItemViewHolder holder, int position) {
             Pizza p = items.get(position).getPizza();
@@ -127,6 +173,10 @@ public class StoreOrdersActivity extends AppCompatActivity {
             holder.pizzaImage.setImageResource(items.get(position).getImage());
             holder.name.setText(items.get(position).getName());
         }
+
+        /**
+         holds each individual item
+         */
         public class PizzaItemViewHolder extends RecyclerView.ViewHolder {
             ImageView pizzaImage;
             TextView name, sauce, toppingsList, size, price;
@@ -140,6 +190,11 @@ public class StoreOrdersActivity extends AppCompatActivity {
                 price = itemView.findViewById(R.id.price);
             }
         }
+
+        /**
+         returns the number of items as an int
+         @return number of items
+         */
         @Override
         public int getItemCount() {
             return items.size();
